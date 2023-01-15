@@ -31,9 +31,9 @@ const Cart = () => {
     let maxQuantity = cartItemQyantity_maxQuantity_itemId[1];
     let itemId = cartItemQyantity_maxQuantity_itemId[2];
 
-    console.log(quantity, itemId);
+    console.log(quantity, maxQuantity, itemId);
 
-    if (quantity > maxQuantity) {
+    if (Number(quantity) > Number(maxQuantity)) {
       alert("Maximimum quantity is " + maxQuantity);
       let cartUpdate = cart.map((item) =>
         item.id === Number(itemId)
@@ -84,12 +84,12 @@ const Cart = () => {
               </select>
             </div>
             <div>
-              <button>Delete</button>
+              <button id={cartStyles.deleteCartButton}>Delete</button>
             </div>
           </div>
         ))}
       </div>
-      <div>
+      <div className={cartStyles.cartPrice}>
         <b> Total amount </b> {`Rs. ${cartPrice}`}
       </div>
     </div>
