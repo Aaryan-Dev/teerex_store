@@ -1,7 +1,6 @@
 
 .filter{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    padding: 0% 5% 0% 5%;
+    padding: 0% 7% 5% 7%;
     overflow: auto;
-    /* height: 1000px; */
 }

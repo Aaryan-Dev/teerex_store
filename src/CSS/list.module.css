@@ -1,12 +1,21 @@
 .list{
     /* border: 2px solid black; */
     width: 65%;
+    margin-left: 30%;
+}
+
+.searchBar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
 }
 
 .filter{
     width: 20%;
     position: fixed;
-    margin-top: -6%;
+    margin-top: -7%;
+    margin-bottom: 2%;
     
 }
 
@@ -32,8 +41,8 @@
 }
 
 .displayList{
-        position: relative;
-        left: 50%;
+        /* position: relative;
+        left: 50%; */
     display: grid;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: auto ;
@@ -43,7 +52,7 @@
 }
 
 .displayList>div{
-    padding: 6%;
+    padding: 0% 6% 6% 6%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -73,11 +82,10 @@
 }
 
 .name{
-    position: relative;
+    margin-left: -100%;
     box-shadow: rgba(191, 46, 240, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px;    
-    backdrop-filter: blur(6px);
+    /* backdrop-filter: blur(6px); */
     font-weight: 900;
-    right: 45%;
     
 }
 
@@ -90,8 +98,8 @@ input[type="text"]::placeholder {
     width: 40%;
     border: 0px;
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid black;
     color:#c968e1 ;
+    box-shadow: rgba(212, 0, 244, 0.09) 0px 2px 1px, rgba(212, 0, 255, 0.09) 0px 4px 2px, rgba(66, 0, 96, 0.09) 0px 8px 4px, rgba(95, 2, 103, 0.09) 0px 16px 8px, rgba(86, 1, 103, 0.09) 0px 32px 16px;
 
 }
 
@@ -99,6 +107,7 @@ input[type="text"]::placeholder {
     color: white;
     background-color: black;
     padding: 1%;
+    cursor: pointer;
 }
 
 .price{

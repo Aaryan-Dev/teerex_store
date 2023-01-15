@@ -16,9 +16,13 @@ const List = () => {
 
   console.log(shirts, isLoading, isError);
 
+  // ******************************************
+
+  // ******************************************
+
   return (
     <div className={listStyles.products}>
-      <div>
+      <div className={listStyles.searchBar}>
         <input
           className={listStyles.searchInput}
           type="text"
