@@ -40,3 +40,30 @@
     top: 100%;
     left: 70%;
 }
+
+
+
+@media all and (min-width: 0px) and (max-width: 428px) {
+
+
+.logo {
+        padding-top: 10%;
+        position: fixed;
+            width: 50%;
+    }
+
+
+
+}
+
+@media all and (min-width: 428px) and (max-width: 800px) {
+
+.logo {
+        padding-top: 10%;
+        position: fixed;
+        width: 50%;
+    }
+
+
+
+}
