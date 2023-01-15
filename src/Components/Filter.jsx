@@ -4,10 +4,9 @@ import filterStyles from "../CSS/filter.module.css";
 const Filter = () => {
   return (
     <div className={filterStyles.filter}>
-      {/* ******************************************************************************************* */}
-      <h3>Colour</h3>
       <div>
         <div>
+          <h3>Colour</h3>
           <input
             type="checkbox"
             value="Novel"
@@ -16,6 +15,7 @@ const Filter = () => {
           />
           <label>Red</label>
         </div>
+
         <div>
           <input
             type="checkbox"
@@ -37,9 +37,9 @@ const Filter = () => {
       </div>
 
       {/* ***************************************************************************** */}
-      <h3>Gender</h3>
       <div>
         <div>
+          <h3>Gender</h3>
           <input
             type="checkbox"
             value="Novel"
@@ -59,9 +59,9 @@ const Filter = () => {
         </div>
       </div>
       {/* ***************************************************************************** */}
-      <h3>Price</h3>
       <div>
         <div>
+          <h3>Price</h3>
           <input
             type="checkbox"
             value="Novel"
@@ -90,9 +90,9 @@ const Filter = () => {
         </div>
       </div>
       {/* ***************************************************************************** */}
-      <h3>Type</h3>
       <div>
         <div>
+          <h3>Type</h3>
           <input
             type="checkbox"
             value="Novel"
