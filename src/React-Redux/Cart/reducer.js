@@ -19,16 +19,16 @@ const reducer = (oldState = initialState, action) => {
     case types.UPDATE_CART_SUCCSESS:
       return {
         ...oldState,
-        isLoading: true,
+        isLoading: false,
         isError: false,
         cart: payload,
       };
-    case types.GET_CART_FAILURE:
+    case types.DELETE_CART_SUCCSESS:
       return {
         ...oldState,
-        isError: true,
+        isError: false,
         isLoading: false,
-        cart: [],
+        cart: payload,
       };
     default:
       return oldState;
