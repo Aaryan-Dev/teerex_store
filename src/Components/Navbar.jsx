@@ -10,10 +10,12 @@ const Navbar = () => {
   return (
     <div className={navbarStyles.navbar}>
       <div className={navbarStyles.logo}>
-        <img
-          src="https://i.postimg.cc/vTFPkLdh/Vanilla-1s-176px.gif"
-          alt="logo"
-        />
+        <Link to="/ ">
+          <img
+            src="https://i.postimg.cc/vTFPkLdh/Vanilla-1s-176px.gif"
+            alt="logo"
+          />
+        </Link>
       </div>
       <Link className={navbarStyles.cart} to="/cart">
         <div>
