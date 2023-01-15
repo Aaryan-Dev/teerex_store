@@ -59,6 +59,18 @@ body{
     
 }
 
+.unavalilable{
+    color: red;
+}
+
+#fade{
+    opacity: 0.3;
+    color: white;
+        background-color: black;
+        cursor: not-allowed;
+        
+}
+
 .displayList>div{
     padding: 0% 6% 6% 6%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
