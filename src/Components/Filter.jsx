@@ -61,39 +61,33 @@ const Filter = () => {
       {/* ***************************************************************************** */}
       <h3>Price</h3>
       <div>
-        <pre>
-          <div>
-            <input
-              type="checkbox"
-              value="Novel"
-              // checked={category.includes("Novel")}
-              // onChange={handleFilterCheckbox}
-            />
-            <label> Rs0-Rs250 </label>
-          </div>
-        </pre>
-        <pre>
-          <div>
-            <input
-              type="checkbox"
-              value="Motivational"
-              // checked={category.includes("Motivational")}
-              // onChange={handleFilterCheckbox}
-            />
-            <label> Rs251-Rs450</label>
-          </div>
-        </pre>
-        <pre>
-          <div>
-            <input
-              type="checkbox"
-              value="Science_Fiction"
-              // checked={category.includes("Science_Fiction")}
-              // onChange={handleFilterCheckbox}
-            />
-            <label> Rs450+</label>
-          </div>
-        </pre>
+        <div>
+          <input
+            type="checkbox"
+            value="Novel"
+            // checked={category.includes("Novel")}
+            // onChange={handleFilterCheckbox}
+          />
+          <label>Rs0-Rs250</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            value="Motivational"
+            // checked={category.includes("Motivational")}
+            // onChange={handleFilterCheckbox}
+          />
+          <label>Rs251-Rs450</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            value="Science_Fiction"
+            // checked={category.includes("Science_Fiction")}
+            // onChange={handleFilterCheckbox}
+          />
+          <label>Rs450+</label>
+        </div>
       </div>
       {/* ***************************************************************************** */}
       <h3>Type</h3>
