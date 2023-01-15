@@ -28,13 +28,10 @@ const Cart = () => {
     const { value } = e.target;
 
     let cartItemQyantity_maxQuantity_itemId = value.split(" ");
-    console.log(cartItemQyantity_maxQuantity_itemId);
 
     let quantity = cartItemQyantity_maxQuantity_itemId[0];
     let maxQuantity = cartItemQyantity_maxQuantity_itemId[1];
     let itemId = cartItemQyantity_maxQuantity_itemId[2];
-
-    console.log(quantity, maxQuantity, itemId);
 
     if (Number(quantity) > Number(maxQuantity)) {
       let cartUpdate = cart.map((item) =>
@@ -43,7 +40,6 @@ const Cart = () => {
           : item
       );
       e.target.value = 0;
-      console.log(cartUpdate);
 
       let alerting = document.querySelectorAll("#alert");
       let cartAlert = alerting[indexer];
@@ -71,7 +67,6 @@ const Cart = () => {
           ? { ...item, cartItemQyantity: quantity }
           : item
       );
-      console.log(cartUpdate);
       dispatch(updateQuantityCart(cartUpdate));
     }
   };
