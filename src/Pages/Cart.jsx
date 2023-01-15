@@ -90,7 +90,7 @@ const Cart = () => {
         {cart.map((item, indexer) => (
           <div key={item.id} className={cartStyles.cartItem}>
             <div className={cartStyles.cartItemImage}>
-              <img src={item.imageURL} alt="image" />
+              <img src={item.imageURL} alt="itemImage" />
             </div>
             <div>
               <div>
