@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cartStyles from "../CSS/cart.module.css";
-import { updateQuantityCart } from "../React-Redux/Cart/action";
+import {
+  updateQuantityCart,
+  deletedCartItem,
+} from "../React-Redux/Cart/action";
 
 const Cart = () => {
   const [cartPrice, setCartPrice] = useState(0);
@@ -54,6 +57,11 @@ const Cart = () => {
     }
   };
 
+  const deleteCartItem = (id) => {
+    let updatedCart = cart.filter((item) => item.id !== id);
+    dispatch(deletedCartItem(updatedCart));
+  };
+
   return (
     <div className={cartStyles.cart}>
       <div className={cartStyles.shopping}>Shopping Cart</div>
@@ -84,7 +92,12 @@ const Cart = () => {
               </select>
             </div>
             <div>
-              <button id={cartStyles.deleteCartButton}>Delete</button>
+              <button
+                onClick={() => deleteCartItem(item.id)}
+                id={cartStyles.deleteCartButton}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
