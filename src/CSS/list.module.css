@@ -153,7 +153,15 @@ input[type="text"]::placeholder {
         margin: 5%;
         position: static;
         width: 100%;
+
+        position: -webkit-sticky;
+            position: sticky;
+            top: 10%;
+
+            backdrop-filter: blur(100px);
     }
+
+        
 
     .filter>div{
         display: flex;
@@ -168,14 +176,15 @@ input[type="text"]::placeholder {
         }
 
 .displayList {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-        gap: 70px;
-        margin-bottom: 5%;
-    }
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    gap: 70px;
+    margin-bottom: 5%;
+}
 
-        .list {
+.list {
+            /* height: 50px; */
             margin: auto;
             width: 80%;
         }
