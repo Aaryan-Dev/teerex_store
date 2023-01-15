@@ -127,7 +127,12 @@ input[type="text"]::placeholder {
     color: white;
     background-color: black;
     padding: 1%;
+    margin-left: 1%;
     cursor: pointer;
+}
+
+#filterButton{
+    display: none;
 }
 
 .price{
@@ -160,7 +165,9 @@ input[type="text"]::placeholder {
             width: 80%;
         }
 
-    
+         #filterButton {
+             display:flex
+         }
 
 }
 
@@ -174,6 +181,10 @@ input[type="text"]::placeholder {
         margin-bottom: 5%;
 
 
+    }
+
+    #filterButton{
+        display: none;
     }
 
 
