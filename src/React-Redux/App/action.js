@@ -13,15 +13,6 @@ const getShirts = (dispatch) => {
     .catch((err) => {
       dispatch({ type: types.GET_SHIRTS_FAILURE, payload: err });
     });
-
-  // axios
-  // .get("http://localhost:8080/books", getBookParams)
-  // .then((res) => {
-  //   dispatch({ type: types.GET_BOOKS_SUCCSESS, payload: res.data });
-  // })
-  // .catch((err) => {
-  //   dispatch({ type: types.GET_BOOKS_FAILURE, payload: err });
-  // });
 };
 
 export { getShirts };
