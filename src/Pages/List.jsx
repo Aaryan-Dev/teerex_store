@@ -26,7 +26,7 @@ const List = () => {
         <input
           className={listStyles.searchInput}
           type="text"
-          placeholder="Search for Products..."
+          placeholder="Search for products..."
         />
         <button className={listStyles.searchButton}>
           <svg
