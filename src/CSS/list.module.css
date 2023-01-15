@@ -1,208 +1,174 @@
-body{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-
-
-
-
-.list{
-    width: 65%;
-    /* margin-left: 30%; */
+.list {
+  width: 65%;
 }
 
-.searchBar{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 4%;
-    
+.searchBar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4%;
 }
 
-.filter{
-    width: 30%;
-    /* position: fixed;
-    margin-top: -10%; */
-
-    
+.filter {
+  width: 30%;
 }
 
-.products{
-    margin: auto;
-    margin-top: 8%;
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-   
+.products {
+  margin: auto;
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
 }
 
-.products>div:nth-child(1){
-   display: flex;
-   justify-content: flex-end;
-   width: 73%;
-   margin-bottom: 2%; 
+.products > div:nth-child(1) {
+  display: flex;
+  justify-content: flex-end;
+  width: 73%;
+  margin-bottom: 2%;
 }
 
-.products>div:nth-child(2){
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+.products > div:nth-child(2) {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-.displayList{
-        /* position: relative;
-        left: 50%; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) ;
-    grid-template-rows: auto ;
-    gap: 70px;
-    margin-bottom: 5%;
-    
-    
+.displayList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 70px;
+  margin-bottom: 5%;
 }
 
-.unavalilable{
-    color: red;
+.unavalilable {
+  color: red;
 }
 
-#fade{
-    opacity: 0.3;
-    color: white;
-        background-color: black;
-        cursor: not-allowed;
-        
+#fade {
+  opacity: 0.3;
+  color: white;
+  background-color: black;
+  cursor: not-allowed;
 }
 
-.displayList>div{
-    padding: 0% 6% 6% 6%;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+.displayList > div {
+  padding: 0% 6% 6% 6%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.displayList>div>div>img{
-    width: 100%;
-    
+.displayList > div > div > img {
+  width: 100%;
 }
 
-.addToCart{
-    margin: auto;
-    margin-top: 3%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
+.addToCart {
+  margin: auto;
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
-
-
-.image{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    cursor: crosshair;
+.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: crosshair;
 }
 
-.name{
-    margin-left: -100%;
-    box-shadow: rgba(191, 46, 240, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px;   
-    font-weight: 900;
-    
+.name {
+  margin-left: -100%;
+  box-shadow: rgba(191, 46, 240, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px;
+  font-weight: 900;
 }
 
 input[type="text"]::placeholder {
-    color: #000000;
-    font-weight: 600;
+  color: #000000;
+  font-weight: 600;
 }
 
-.searchInput{
-    width: 40%;
-    border: 0px;
-    backdrop-filter: blur(8px);
-    color:#000000 ;
-    font-weight: 600;
+.searchInput {
+  width: 40%;
+  border: 0px;
+  backdrop-filter: blur(8px);
+  color: #000000;
+  font-weight: 600;
 
-    box-shadow: rgba(230, 1, 255, 0.56) 0px 22px 1000px 4px;
+  box-shadow: rgba(230, 1, 255, 0.56) 0px 22px 1000px 4px;
 }
 
-.searchButton{
-    color: white;
-    background-color: black;
-    padding: 1%;
-    margin-left: 1%;
-    cursor: pointer;
+.searchButton {
+  color: white;
+  background-color: black;
+  padding: 1%;
+  margin-left: 1%;
+  cursor: pointer;
 }
 
-/* #filterButton{
-    display: none;
-} */
-
-.price{
+.price {
   font-weight: 700;
 }
 
-#cartButton{
-    color: white;
-    background-color: black;
-    cursor: pointer;
+#cartButton {
+  color: white;
+  background-color: black;
+  cursor: pointer;
 }
 
 @media all and (min-width: 0px) and (max-width: 428px) {
+  .filter {
+    margin: 5%;
+    position: static;
+    width: 100%;
 
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10%;
 
-    .filter{
-        margin: 5%;
-        position: static;
-        width: 100%;
+    backdrop-filter: blur(100px);
+  }
 
-        position: -webkit-sticky;
-            position: sticky;
-            top: 10%;
+  .filter > div {
+    display: flex;
+    justify-content: space-between;
+  }
 
-            backdrop-filter: blur(100px);
-    }
+  #column {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-        
-
-    .filter>div{
-        display: flex;
-        justify-content: space-between;
-    }
-
-        #column {
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-.displayList {
+  .displayList {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
     gap: 70px;
     margin-bottom: 5%;
-}
+  }
 
-.list {
-            /* height: 50px; */
-            margin: auto;
-            width: 80%;
-        }
-
-
+  .list {
+    margin: auto;
+    width: 80%;
+  }
 }
 
 @media all and (min-width: 428px) and (max-width: 800px) {
-
-.displayList {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-        gap: 70px;
-        margin-bottom: 5%;
-
-
-    }
-
-
+  .displayList {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    gap: 70px;
+    margin-bottom: 5%;
+  }
 }
