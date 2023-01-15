@@ -1,12 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cartStyles from "../CSS/cart.module.css";
+import { updateQuantityCart } from "../React-Redux/Cart/action";
 
 const Cart = () => {
-  const store = useSelector((state) => state.CartReducer);
-  const { cart } = store;
+  const [cartPrice, setCartPrice] = useState(0);
 
-  console.log(cart);
+  const Cart = useSelector((state) => state.CartReducer);
+  const { cart } = Cart;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let totalPrice = 0;
+    for (let i = 0; i < cart.length; i++) {
+      let cartItem = cart[i];
+      totalPrice =
+        totalPrice + Number(cartItem.price) * Number(cartItem.cartItemQyantity);
+    }
+    setCartPrice(totalPrice);
+  }, [cart]);
+
+  const updateQuantity = (e) => {
+    const { value } = e.target;
+
+    let cartItemQyantity_maxQuantity_itemId = value.split(" ");
+    console.log(cartItemQyantity_maxQuantity_itemId);
+
+    let quantity = cartItemQyantity_maxQuantity_itemId[0];
+    let maxQuantity = cartItemQyantity_maxQuantity_itemId[1];
+    let itemId = cartItemQyantity_maxQuantity_itemId[2];
+
+    console.log(quantity, itemId);
+
+    if (quantity > maxQuantity) {
+      alert("Maximimum quantity is " + maxQuantity);
+      let cartUpdate = cart.map((item) =>
+        item.id === Number(itemId)
+          ? { ...item, cartItemQyantity: maxQuantity }
+          : item
+      );
+      e.target.value = 0;
+      console.log(cartUpdate);
+      dispatch(updateQuantityCart(cartUpdate));
+    } else {
+      let cartUpdate = cart.map((item) =>
+        item.id === Number(itemId)
+          ? { ...item, cartItemQyantity: quantity }
+          : item
+      );
+      console.log(cartUpdate);
+      dispatch(updateQuantityCart(cartUpdate));
+    }
+  };
 
   return (
     <div className={cartStyles.cart}>
@@ -14,7 +60,7 @@ const Cart = () => {
 
       <div className={cartStyles.cartStore}>
         {cart.map((item) => (
-          <div className={cartStyles.cartItem} key={item.id}>
+          <div key={item.id} className={cartStyles.cartItem}>
             <div className={cartStyles.cartItemImage}>
               <img src={item.imageURL} alt="image" />
             </div>
@@ -27,11 +73,13 @@ const Cart = () => {
               </div>
             </div>
             <div>
-              <select id="quantity">
+              <select id="quantity" onChange={updateQuantity}>
                 {Array(10)
                   .fill(0)
                   .map((quantity, index) => (
-                    <option value="">Qnt: {index + 1} </option>
+                    <option value={`${index + 1} ${item.quantity} ${item.id}`}>
+                      Qnt: {index + 1}
+                    </option>
                   ))}
               </select>
             </div>
@@ -42,7 +90,7 @@ const Cart = () => {
         ))}
       </div>
       <div>
-        <b> Total amount </b> {`Rs. `}
+        <b> Total amount </b> {`Rs. ${cartPrice}`}
       </div>
     </div>
   );

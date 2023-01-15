@@ -1,5 +1,4 @@
 import * as types from "./actionTypes";
-import { useSelector } from "react-redux";
 
 const addInCart = (itemToAdd) => (dispatch) => {
   dispatch({ type: types.GET_CART_SUCCSESS, payload: itemToAdd });
@@ -25,4 +24,8 @@ const addInCart = (itemToAdd) => (dispatch) => {
   // });
 };
 
-export { addInCart };
+const updateQuantityCart = (cart) => (dispatch) => {
+  dispatch({ type: types.UPDATE_CART_SUCCSESS, payload: cart });
+};
+
+export { addInCart, updateQuantityCart };

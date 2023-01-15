@@ -7,9 +7,11 @@ import { addInCart } from "../React-Redux/Cart/action";
 
 const List = () => {
   const store = useSelector((state) => state.AppReducer);
+  const Cart = useSelector((state) => state.CartReducer);
   const dispatch = useDispatch();
 
   const { shirts, isLoading, isError } = store;
+  const { cart } = Cart;
 
   useEffect(() => {
     dispatch(getShirts);
@@ -20,8 +22,27 @@ const List = () => {
   // ******************************************
 
   const addToCart = (id) => {
-    const itemToAdd = shirts[id - 1];
-    dispatch(addInCart(itemToAdd));
+    let alreadyInCart = false;
+
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === id) {
+        alreadyInCart = true;
+        break;
+      }
+    }
+
+    if (alreadyInCart) {
+      alert("Item already in cart");
+    } else {
+      let itemToAdd = shirts[id - 1];
+      // cart.map((item) =>
+      //   item.cartItemQyantity === undefined
+      //     ? (itemToAdd = { ...shirts[id - 1], cartItemQyantity: 1 })
+      //     : itemToAdd
+      // );
+      itemToAdd = { ...shirts[id - 1], cartItemQyantity: 1 };
+      dispatch(addInCart(itemToAdd));
+    }
   };
 
   // ******************************************
