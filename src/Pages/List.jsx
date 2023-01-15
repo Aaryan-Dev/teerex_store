@@ -32,14 +32,14 @@ const List = () => {
     }
 
     if (alreadyInCart) {
-      alert("Item already in cart");
+      let alert = document.querySelectorAll("#alert");
+
+      let cartAlert = alert[id - 1];
+      cartAlert.innerText = "Item already in cart!";
+      cartAlert.style.backgroundColor = "black";
+      cartAlert.style.color = "white";
     } else {
       let itemToAdd = shirts[id - 1];
-      // cart.map((item) =>
-      //   item.cartItemQyantity === undefined
-      //     ? (itemToAdd = { ...shirts[id - 1], cartItemQyantity: 1 })
-      //     : itemToAdd
-      // );
       itemToAdd = { ...shirts[id - 1], cartItemQyantity: 1 };
       dispatch(addInCart(itemToAdd));
     }
@@ -76,6 +76,7 @@ const List = () => {
           <div className={listStyles.displayList}>
             {shirts.map((item) => (
               <div key={item.id}>
+                <div id="alert"></div>
                 <div className={listStyles.image}>
                   <div className={listStyles.name}>{item.name}</div>
                   <img src={item.imageURL} alt="shirt" />

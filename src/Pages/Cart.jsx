@@ -24,7 +24,7 @@ const Cart = () => {
     setCartPrice(totalPrice);
   }, [cart]);
 
-  const updateQuantity = (e) => {
+  const updateQuantity = (e, indexer) => {
     const { value } = e.target;
 
     let cartItemQyantity_maxQuantity_itemId = value.split(" ");
@@ -37,7 +37,6 @@ const Cart = () => {
     console.log(quantity, maxQuantity, itemId);
 
     if (Number(quantity) > Number(maxQuantity)) {
-      alert("Maximimum quantity is " + maxQuantity);
       let cartUpdate = cart.map((item) =>
         item.id === Number(itemId)
           ? { ...item, cartItemQyantity: maxQuantity }
@@ -45,8 +44,28 @@ const Cart = () => {
       );
       e.target.value = 0;
       console.log(cartUpdate);
+
+      let alerting = document.querySelectorAll("#alert");
+      let cartAlert = alerting[indexer];
+      cartAlert.innerText = "Maximum quantity:- " + maxQuantity;
+      cartAlert.style.backgroundColor = "red";
+      cartAlert.style.color = "white";
+
+      let defaultQuan = document.querySelectorAll("#defaultQuantity");
+      let defaultQuantity = defaultQuan[indexer];
+      defaultQuantity.innerText = "Quantity set to:- " + maxQuantity;
+      defaultQuantity.style.backgroundColor = "black";
+      defaultQuantity.style.color = "white";
+
       dispatch(updateQuantityCart(cartUpdate));
     } else {
+      let alerting = document.querySelectorAll("#alert");
+      let cartAlert = alerting[indexer];
+      cartAlert.innerHTML = null;
+
+      let defaultQuan = document.querySelectorAll("#defaultQuantity");
+      let defaultQuantity = defaultQuan[indexer];
+      defaultQuantity.innerHTML = null;
       let cartUpdate = cart.map((item) =>
         item.id === Number(itemId)
           ? { ...item, cartItemQyantity: quantity }
@@ -68,7 +87,7 @@ const Cart = () => {
 
       <div className={cartStyles.cartStore}>
         {cart.length === 0 ? <p>Cart is empty!</p> : null}
-        {cart.map((item) => (
+        {cart.map((item, indexer) => (
           <div key={item.id} className={cartStyles.cartItem}>
             <div className={cartStyles.cartItemImage}>
               <img src={item.imageURL} alt="image" />
@@ -82,7 +101,10 @@ const Cart = () => {
               </div>
             </div>
             <div>
-              <select id="quantity" onChange={updateQuantity}>
+              <select
+                id="quantity"
+                onChange={(e) => updateQuantity(e, indexer)}
+              >
                 {Array(10)
                   .fill(0)
                   .map((quantity, index) => (
@@ -91,6 +113,8 @@ const Cart = () => {
                     </option>
                   ))}
               </select>
+              <div id="alert"></div>
+              <div id="defaultQuantity"></div>
             </div>
             <div>
               <button
