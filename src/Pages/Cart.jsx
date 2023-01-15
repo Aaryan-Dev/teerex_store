@@ -67,6 +67,7 @@ const Cart = () => {
       <div className={cartStyles.shopping}>Shopping Cart</div>
 
       <div className={cartStyles.cartStore}>
+        {cart.length === 0 ? <p>Cart is empty!</p> : null}
         {cart.map((item) => (
           <div key={item.id} className={cartStyles.cartItem}>
             <div className={cartStyles.cartItemImage}>
