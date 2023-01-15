@@ -15,7 +15,7 @@ const List = () => {
 
   useEffect(() => {
     dispatch(getShirts);
-  }, []);
+  }, [dispatch]);
 
   console.log(shirts, isLoading, isError);
 
@@ -77,6 +77,9 @@ const List = () => {
             {shirts.map((item) => (
               <div key={item.id}>
                 <div id="alert"></div>
+                <div className={listStyles.unavalilable}>
+                  {item.quantity === 0 ? "Item quantity:- 0" : null}
+                </div>
                 <div className={listStyles.image}>
                   <div className={listStyles.name}>{item.name}</div>
                   <img src={item.imageURL} alt="shirt" />
@@ -85,8 +88,13 @@ const List = () => {
                   <div className={listStyles.price}>{`Rs ${item.price}`}</div>
                   <div>
                     <button
+                      disabled={item.quantity === 0}
                       onClick={() => addToCart(item.id)}
-                      id={listStyles.cartButton}
+                      id={
+                        item.quantity === 0
+                          ? listStyles.fade
+                          : listStyles.cartButton
+                      }
                     >
                       Add to cart
                     </button>
