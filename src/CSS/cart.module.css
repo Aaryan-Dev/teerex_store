@@ -25,6 +25,20 @@
 
 }
 
+#deleteCartButton{
+    color: white;
+    padding: 10%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.cartPrice{
+    position: fixed;
+    bottom: 3%;
+    background-color: rgba(0, 0, 0, 0.911);
+    color: rgb(255, 255, 255);
+    padding: 2%;
+}
 
 .cartItem{
     display: flex;
