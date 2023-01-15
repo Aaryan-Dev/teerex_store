@@ -52,6 +52,7 @@ body{
     gap: 70px;
     margin-bottom: 5%;
     
+    
 }
 
 .displayList>div{
@@ -103,11 +104,7 @@ input[type="text"]::placeholder {
     color:#000000 ;
     font-weight: 600;
 
-    box-shadow: rgba(103, 0, 150, 0.25) 0px 30px 60px -12px inset, rgba(113, 0, 147, 0.3) 0px 18px 36px -18px inset, rgba(212, 0, 244, 0.09) 0px 2px 1px,
-        rgba(212, 0, 255, 0.09) 0px 4px 2px,
-        rgba(66, 0, 96, 0.09) 0px 8px 4px,
-        rgba(95, 2, 103, 0.09) 0px 16px 8px,
-        rgba(86, 1, 103, 0.09) 0px 32px 16px;
+    box-shadow: rgba(230, 1, 255, 0.56) 0px 22px 1000px 4px;
 }
 
 .searchButton{

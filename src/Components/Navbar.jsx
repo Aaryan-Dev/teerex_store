@@ -1,8 +1,12 @@
 import React from "react";
 import navbarStyles from "../CSS/navbar.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const store = useSelector((state) => state.CartReducer);
+  const { cart } = store;
+
   return (
     <div className={navbarStyles.navbar}>
       <div className={navbarStyles.logo}>
@@ -13,7 +17,7 @@ const Navbar = () => {
       </div>
       <Link className={navbarStyles.cart} to="/cart">
         <div>
-          <span id={navbarStyles.cartItemsQantity}>2</span>
+          <span id={navbarStyles.cartItemsQantity}>{cart.length}</span>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
