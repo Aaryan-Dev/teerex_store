@@ -66,6 +66,13 @@ body {
   width: 100%;
 }
 
+#column {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .addToCart {
   margin: auto;
   margin-top: 3%;
