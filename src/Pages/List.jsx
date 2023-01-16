@@ -68,34 +68,38 @@ const List = () => {
         </div>
         <div className={listStyles.list}>
           <div className={listStyles.displayList}>
-            {shirts.map((item) => (
-              <div key={item.id}>
-                <div id="alert"></div>
-                <div className={listStyles.image}>
-                  <div className={listStyles.name}>{item.name}</div>
-                  <img src={item.imageURL} alt="shirt" />
-                </div>
-                <div className={listStyles.addToCart}>
-                  <div className={listStyles.price}>{`Rs ${item.price}`}</div>
-                  <div>
-                    <button
-                      disabled={item.quantity === 0}
-                      onClick={() => addToCart(item.id)}
-                      id={
-                        item.quantity === 0
-                          ? listStyles.fade
-                          : listStyles.cartButton
-                      }
-                    >
-                      Add to cart
-                    </button>
+            {shirts.length !== 0
+              ? shirts?.map((item) => (
+                  <div key={item.id}>
+                    <div id="alert"></div>
+                    <div className={listStyles.image}>
+                      <div className={listStyles.name}>{item.name}</div>
+                      <img src={item.imageURL} alt="shirt" />
+                    </div>
+                    <div className={listStyles.addToCart}>
+                      <div
+                        className={listStyles.price}
+                      >{`Rs ${item.price}`}</div>
+                      <div>
+                        <button
+                          disabled={item.quantity === 0}
+                          onClick={() => addToCart(item.id)}
+                          id={
+                            item.quantity === 0
+                              ? listStyles.fade
+                              : listStyles.cartButton
+                          }
+                        >
+                          Add to cart
+                        </button>
+                      </div>
+                    </div>
+                    <div className={listStyles.unavalilable}>
+                      {item.quantity === 0 ? "Item quantity:- 0" : null}
+                    </div>
                   </div>
-                </div>
-                <div className={listStyles.unavalilable}>
-                  {item.quantity === 0 ? "Item quantity:- 0" : null}
-                </div>
-              </div>
-            ))}
+                ))
+              : "No match!"}
           </div>
         </div>
       </div>
