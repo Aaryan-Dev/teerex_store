@@ -1,8 +1,6 @@
 import * as types from "./actionTypes";
 
 const getShirts = (filterObject) => (dispatch) => {
-  console.log(filterObject);
-
   const { filterColour, filterGender, filterPrice, filterType } = filterObject;
 
   dispatch({ type: types.GET_SHIRTS_REQUEST });
@@ -47,8 +45,6 @@ const getShirts = (filterObject) => (dispatch) => {
         );
       }
 
-      console.log(updatedPayload);
-
       dispatch({ type: types.GET_SHIRTS_SUCCSESS, payload: updatedPayload });
     })
     .catch((error) => {
@@ -56,4 +52,28 @@ const getShirts = (filterObject) => (dispatch) => {
     });
 };
 
-export { getShirts };
+const goHandleSearch = (search) => (dispatch) => {
+  dispatch({ type: types.GET_SHIRTS_REQUEST });
+
+  return fetch(
+    "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json"
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      let searchLetter = search.search.split("");
+      console.log(searchLetter);
+
+      for (let i = 0; i < searchLetter.length; i++) {
+        response = response.filter((item) =>
+          item.name.toLowerCase().trim().split("").includes(searchLetter[i])
+        );
+      }
+
+      dispatch({ type: types.GET_SHIRTS_SUCCSESS, payload: response });
+    })
+    .catch((error) => {
+      dispatch({ type: types.GET_SHIRTS_FAILURE, payload: error });
+    });
+};
+
+export { getShirts, goHandleSearch };

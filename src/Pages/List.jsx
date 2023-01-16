@@ -1,17 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Filter from "../Components/Filter";
-import { getShirts } from "../React-Redux/App/action";
+import { getShirts, goHandleSearch } from "../React-Redux/App/action";
 import listStyles from "../CSS/list.module.css";
 import { addInCart } from "../React-Redux/Cart/action";
+
+const initialSearch = {
+  search: "",
+};
 
 const List = () => {
   const store = useSelector((state) => state.AppReducer);
   const Cart = useSelector((state) => state.CartReducer);
+
+  const [search, setSearch] = useState(initialSearch);
+
   const dispatch = useDispatch();
 
   const { shirts } = store;
   const { cart } = Cart;
+
+  const handleSearch = (e) => {
+    const { name, value } = e.target;
+    setSearch({ ...initialSearch, [name]: value });
+  };
+
+  const goSearch = () => {
+    dispatch(goHandleSearch(search));
+  };
 
   useEffect(() => {
     dispatch(getShirts);
@@ -46,10 +62,13 @@ const List = () => {
       <div className={listStyles.searchBar}>
         <input
           className={listStyles.searchInput}
+          onChange={handleSearch}
+          name="search"
+          value={search.search}
           type="text"
           placeholder="Search for products..."
         />
-        <button className={listStyles.searchButton}>
+        <button onClick={() => goSearch()} className={listStyles.searchButton}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
