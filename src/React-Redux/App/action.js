@@ -61,7 +61,6 @@ const goHandleSearch = (search) => (dispatch) => {
     .then((response) => response.json())
     .then((response) => {
       let searchLetter = search.search.split("");
-      console.log(searchLetter);
 
       for (let i = 0; i < searchLetter.length; i++) {
         response = response.filter((item) =>
