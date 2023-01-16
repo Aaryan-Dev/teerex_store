@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import filterStyles from "../CSS/filter.module.css";
+import { getShirts } from "../React-Redux/App/action";
 
 const Filter = () => {
+  const dispatch = useDispatch();
+
   const [colour, setColour] = useState([]);
   const [gender, setGender] = useState([]);
   const [price, setPrice] = useState([]);
@@ -39,14 +43,16 @@ const Filter = () => {
     setType(newCategories);
   };
 
-  let filterObject = {
-    filterColour: colour,
-    filterGender: gender,
-    filterPrice: price,
-    filterType: type,
-  };
+  useEffect(() => {
+    let filterObject = {
+      filterColour: colour,
+      filterGender: gender,
+      filterPrice: price,
+      filterType: type,
+    };
 
-  console.log(filterObject);
+    dispatch(getShirts(filterObject));
+  }, [dispatch, colour, gender, price, type]);
 
   return (
     <div className={filterStyles.filter}>
